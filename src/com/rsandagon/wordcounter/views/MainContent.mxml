@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:BorderContainer xmlns:fx="http://ns.adobe.com/mxml/2009"
+				   xmlns:s="library://ns.adobe.com/flex/spark"
+				   xmlns:mx="library://ns.adobe.com/flex/mx"
+				   width="100%"
+				   height="100%"
+				   borderAlpha="0"
+				   name="MainContent"
+				   backgroundAlpha="0"
+				   xmlns:pm="com.rsandagon.wordcounter.pm.*">
+	<s:layout>
+		<s:BasicLayout/>
+	</s:layout>
+	
+	<fx:Script>
+		<![CDATA[
+			protected function onSortButtonClick(event:Event):void
+			{
+				//	this triggers the processing
+				pm.countWords(phraseInput.text);
+			}
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<pm:MainContentPM id="pm"/>
+	</fx:Declarations>
+	
+	
+	<s:Group>
+		<s:layout>
+			<s:VerticalLayout/>
+		</s:layout>
+		
+		<s:TextInput id="phraseInput" 
+					 width="400"
+					 editable="true"/>
+		
+		<s:Button label="Sort and Count" click="onSortButtonClick(event)"/>
+		
+		<s:DataGrid
+			dataProvider="{ pm.wordGroups }"
+			visible="{(pm.wordGroups.length > 0)? true:false}"
+			width="100%" height="100%">
+			
+			<s:columns>
+				<s:ArrayList>
+					<s:GridColumn dataField="word" headerText="Word" />
+					<s:GridColumn dataField="count" headerText="Occurences" />
+				</s:ArrayList>
+			</s:columns>
+			
+		</s:DataGrid>
+	</s:Group>
+</s:BorderContainer>
