@@ -40,7 +40,7 @@ package testSuite.tests {
 			Assert.assertEquals(4, componentToTest.wordGroups.length());
 			
 			//	test word and count
-			componentToTest.countWords("test test test");
+			componentToTest.countWords("test1 test2 test3");
 			Assert.assertEquals("test", WordGroup(componentToTest.wordGroups[0]).word);
 			Assert.assertEquals(3, WordGroup(componentToTest.wordGroups[0]).count);
 			
