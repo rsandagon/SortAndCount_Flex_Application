@@ -36,7 +36,7 @@ package testSuite.tests {
 			Assert.assertEquals(4, componentToTest.wordGroups.length());
 			
 			//	test removal of duplicates
-			componentToTest.countWords("this is a test tes test test");
+			componentToTest.countWords("this is a test test test test");
 			Assert.assertEquals(4, componentToTest.wordGroups.length());
 			
 			//	test word and count
@@ -45,9 +45,9 @@ package testSuite.tests {
 			Assert.assertEquals(3, WordGroup(componentToTest.wordGroups[0]).count);
 			
 			//	test count update
-			componentToTest.countWords("test test test");
+			componentToTest.countWords("test1 test2 test3");
 			Assert.assertEquals(3, WordGroup(componentToTest.wordGroups[0]).count);
-			componentToTest.countWords("test test test tes test");
+			componentToTest.countWords("test1 test2 test3 test4 test5");
 			Assert.assertEquals(5, WordGroup(componentToTest.wordGroups[0]).count);
 		}
 	}
